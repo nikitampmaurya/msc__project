@@ -277,37 +277,48 @@ lapply(names(dge_list), function(study) dim(get(paste0("norm_counts_", study))))
 # Check dimensions of log_norm_counts for each study
 lapply(names(dge_list), function(study) dim(get(paste0("log_norm_counts_", study))))
 
-par(mfrow = c(2, 2))  # arrange plots in a 2x2 grid for 4 studies
+par(mfrow = c(2, 2))  # arranging plots in a 2x2 grid for 4 studies
 for (study in names(dge_list)) {
   study_logCPM <- get(paste0("log_norm_counts_", study))
-  boxplot(study_logCPM, las = 2, main = paste("Log2 CPM After TMM -", study), 
-          ylab = "Log2 CPM", xlab = "", cex.axis = 0.7)
+  boxplot(study_logCPM, 
+          las = 2, 
+          main = paste0("Normalized Count (", study, ")"),
+          ylab = "Log2-CPM (TMM Normalized)",  
+          cex.axis = 0.7)
 }
+par(mfrow = c(1, 1))  # reset plot layout
 
-par(mfrow = c(1, 1))  # Reset plot layout
+############################ Step 8: PCA ##############################
 
-# After boxplots, create dge_combined by combining filtered counts and TMM factors
+# after boxplots, creating dge_combined by combining filtered counts and TMM factors
 
-# Find common genes across all studies (after per-study filtering)
-common_genes <- Reduce(intersect, lapply(filtered_data_list, rownames))
+# find common genes across all studies cuz after per-study filtering, each study has different set of genes
 
-# Subset each study's filtered counts to common genes
-filtered_data_list <- lapply(filtered_data_list, function(x) x[common_genes, ])
+common_genes = Reduce(intersect, lapply(filtered_data_list, rownames))
 
-# Recombine the filtered count data into a single matrix
-combined_filtered_data <- do.call(cbind, filtered_data_list)
+# subset each study's filtered counts to common genes
 
-# Verify dimensions
-dim(combined_filtered_data)  # Should be [n_common_genes, 153]
+filtered_data_list = lapply(filtered_data_list, function(x) x[common_genes, ])
 
-# Create a new DGEList with the combined filtered data
-# Use the original library sizes and norm.factors from each study
-combined_lib_sizes <- unlist(lapply(dge_list, function(dge) dge$samples$lib.size))
-combined_norm_factors <- unlist(norm_factors_list)
-dge_combined <- DGEList(counts = combined_filtered_data, 
+# combine the filtered count data into a single matrix
+
+combined_filtered_data = do.call(cbind, filtered_data_list)
+
+dim(combined_filtered_data)  # 17648 genes  153 samples
+
+# create a new DGEList with the combined filtered data
+# use the original library sizes and norm.factors from each study
+combined_lib_sizes = unlist(lapply(dge_list, function(dge) dge$samples$lib.size))
+# extract lib size for each study and then convert them into a single list
+
+combined_norm_factors = unlist(norm_factors_list) # extracts TMM normalization factors for all samples across studies and
+# combine them into a single vector
+
+dge_combined = DGEList(counts = combined_filtered_data, 
                         group = combined_metadata$`Tissue Type`)
-dge_combined$samples$lib.size <- combined_lib_sizes
-dge_combined$samples$norm.factors <- combined_norm_factors
+# 
+dge_combined$samples$lib.size = combined_lib_sizes
+dge_combined$samples$norm.factors = combined_norm_factors
 
 # Verify
 head(dge_combined$samples)
