@@ -1,6 +1,6 @@
 ############################# Step 1: Loading the libraries ###############################
 
-library(tidyverse) # to clean, manipulate and visualize dataset
+library(tidyverse) # to modify and visualize dataset
 library(GEOquery) # to access and retrieve data from the Gene Expression Omnibus (GEO) repository
 library(readxl) # to read excel files into R
 library(org.Hs.eg.db) # to convert Entrez IDs to gene symbols
@@ -9,7 +9,6 @@ library(edgeR) # for differential expression analysis
 ############################ Step 2: Downloading and Retrieving the Metatdata ###############################
 
 # sample_ids = c("GSE224991", "GSE207350", "GSE192354", "GSE169255") # list of sample ids
-
 
 #for (id in sample_ids) { #loop through each id in the above list
   
@@ -124,11 +123,10 @@ metadata1_1$'Tissue Type'[metadata1_1$'Tissue Type' == "Leiomyoma"] = "Fibroid" 
 
 colnames(metadata2_1) = c("Sample ID", "Tissue Type", "Ethnicity", "Study", "Reference GEO ID")
 rownames(metadata2_1) = NULL
-head(metadata2_1)
 
 colnames(metadata3_1) = c("Sample ID", "Tissue Type", "Ethnicity", "Age", "BMI", "Study", "Reference GEO ID")
 rownames(metadata3_1) = NULL
-metadata3_1$'Tissue Type' = gsub("Uterine ", "", metadata3_1$'Tissue Type') # removing a part of string 
+metadata3_1$'Tissue Type' = gsub("Uterine ", "", metadata3_1$'Tissue Type') # recognise the pattern and replace
 metadata3_1$'Tissue Type'[metadata3_1$'Tissue Type' == "leiomyoma"] = "Fibroid"
 metadata3_1$'Tissue Type'[metadata3_1$'Tissue Type' == "myometrium"] = "Myometrium"
 
@@ -144,6 +142,7 @@ combined_metadata = combined_metadata[c( "Study", "Reference GEO ID",
   "Description", "Patient Characteristics")] # rearranging the colnames
 
 dim(combined_metadata) # total no of samples 153 samples 
+total_no_samples = ncol(data1) + ncol(data2) + ncol(data3) + ncol(data4) # same as above
 
 combined_metadata$Ethnicity[is.na(combined_metadata$Ethnicity)] = "Unknown" # replace all na with unknown
 combined_metadata$Description[is.na(combined_metadata$Description)] = "Unknown"
@@ -151,14 +150,12 @@ combined_metadata$`Patient Characteristics`[is.na(combined_metadata$`Patient Cha
 
 # replacing na with unknown
 # eliminates errors when using functions like table(), ggplot(), or models
-# shows missing values clearly in plots and summaries
-# prevents data from being removed just because it's missing
 # allows us include "Unknown" as a valid category in analysis
 # makes it easy to count how many samples had missing info
 # helps others understand that the data was missing on purpose, not by mistake
 
-combined_metadata$BMI[combined_metadata$BMI == "--"] = NA
 combined_metadata$Age = as.numeric(combined_metadata$Age)
+combined_metadata$BMI[combined_metadata$BMI == "--"] = NA
 combined_metadata$BMI = as.numeric(combined_metadata$BMI)
 
 combined_metadata$`Tissue Type` = as.factor(combined_metadata$`Tissue Type`) # converting specific cols into factors
@@ -200,6 +197,7 @@ combined_data = cbind(data1, data2, data3, data4) # since they all match, we int
 dim(combined_data) #39376 genes  153 samples
 dim(combined_metadata) # 153 samples  9 features
 any(duplicated(rownames(combined_data))) # False
+any(duplicated(rownames(combined_metadata$`Sample ID`))) # FALSE
 any(is.na(combined_data)) # FALSE
 identical(colnames(combined_data),combined_metadata$`Sample ID`) # samples align in metadata and count data
 
@@ -244,11 +242,12 @@ for (study in studies) {
   # now normalization by study
   # a new DGEList with filtered counts
   dge = DGEList(counts = study_counts, group = study_metadata$'Tissue Type')
-  dge = calcNormFactors(dge, method = "TMM")
+  dge = calcNormFactors(dge, method = "TMM") # TMM normalization factors to correct for library composition biases
+  # At this point, you haven’t calculated any expression values like CPM. The dge$counts matrix still contains raw counts (filtered, but unnormalized).
   
-  dge_list[[study]] <- dge # now store the DGEList object
-  filtered_data_list[[study]] <- study_counts # as well as filtered count data
-  norm_factors_list[[study]] <- dge$samples$norm.factors # and TMM normalization factors
+  dge_list[[study]] = dge # now store the DGEList object
+  filtered_data_list[[study]] = study_counts # as well as filtered count data
+  norm_factors_list[[study]] = dge$samples$norm.factors # and TMM normalization factors
 }
 
 # let's extract normalized count data (CPM) for each study
@@ -267,19 +266,18 @@ for (study in names(dge_list)) {
   assign(paste0("norm_counts_", study), norm_counts, envir = .GlobalEnv)
   assign(paste0("log_norm_counts_", study), log_norm_counts, envir = .GlobalEnv)
   
-  # saving normalized and log transformed normalized count data of each study as files
-  write.csv(norm_counts, file = paste0("norm_counts_", study, ".csv"))
-  write.csv(log_norm_counts, file = paste0("log_norm_counts_", study, ".csv"))
 }
 
-# Check dimensions of normalized counts for each study
+# check dimensions of normalized counts for each study
 lapply(names(dge_list), function(study) dim(get(paste0("norm_counts_", study))))
-# Check dimensions of log_norm_counts for each study
+# check dimensions of log_norm_counts for each study
 lapply(names(dge_list), function(study) dim(get(paste0("log_norm_counts_", study))))
+
+# let's visualize if normalization is correct or not
 
 par(mfrow = c(2, 2))  # arranging plots in a 2x2 grid for 4 studies
 for (study in names(dge_list)) {
-  study_logCPM <- get(paste0("log_norm_counts_", study))
+  study_logCPM = get(paste0("log_norm_counts_", study))
   boxplot(study_logCPM, 
           las = 2, 
           main = paste0("Normalized Count (", study, ")"),
@@ -296,51 +294,59 @@ par(mfrow = c(1, 1))  # reset plot layout
 
 common_genes = Reduce(intersect, lapply(filtered_data_list, rownames))
 
-# subset each study's filtered counts to common genes
+# lapply will make a list of genes (rownames) for each study, then interesect will find intersection
+# reduce will reduce the list into a single result
 
 filtered_data_list = lapply(filtered_data_list, function(x) x[common_genes, ])
 
-# combine the filtered count data into a single matrix
+# lapply applies the subsetting function to each element of filtered_data_list.
+
+# here x is the input matrix (filtered_data_list[["GSE224991"]]), 
+# common gene is a vector of gene ID, and comma keeps all columns of x matrix.
 
 combined_filtered_data = do.call(cbind, filtered_data_list)
 
+# (column-binding) requires all matrices to have the same number of rows (genes) and the same row names (gene IDs) in the same order
+# do.call “unpacks” the list and passes its elements as separate arguments to cbind
+
 dim(combined_filtered_data)  # 17648 genes  153 samples
 
-# create a new DGEList with the combined filtered data
-# use the original library sizes and norm.factors from each study
 combined_lib_sizes = unlist(lapply(dge_list, function(dge) dge$samples$lib.size))
-# extract lib size for each study and then convert them into a single list
+# extract lib size for each study's DGElist and then convert them into a single vector
 
 combined_norm_factors = unlist(norm_factors_list) # extracts TMM normalization factors for all samples across studies and
 # combine them into a single vector
 
 dge_combined = DGEList(counts = combined_filtered_data, 
                         group = combined_metadata$`Tissue Type`)
-# 
-dge_combined$samples$lib.size = combined_lib_sizes
-dge_combined$samples$norm.factors = combined_norm_factors
+# combines the count data for all 153 samples, with Tissue Type (Fibroid/Myometrium) as the grouping factor.
 
-# Verify
-head(dge_combined$samples)
+dge_combined$samples$lib.size = combined_lib_sizes
+# this samples is a table with info about each samples (153 rows, one per sample)
+# lib.size: Total counts per sample (initially set by DGEList, but we’ll overwrite it).
+# combined_lib_sizes is a vector of 153 numbers, one for each sample, that you extracted earlier.
+# it contains the library sizes, after filtering genes but before subsetting to common_genes.
+
+dge_combined$samples$norm.factors = combined_norm_factors
 
 # Now proceed with PCA using dge_combined
 # Load libraries for PCA and plotting
 
 # Calculate combined log-CPM using dge_combined (which has per-study TMM factors)
-logCPM <- cpm(dge_combined, normalized.lib.sizes = TRUE, log = TRUE, prior.count = 1)
+logCPM = cpm(dge_combined, normalized.lib.sizes = TRUE, log = TRUE, prior.count = 1)
 
 # Transpose logCPM so rows are samples, columns are genes
-pca_data <- t(logCPM)
+pca_data = t(logCPM)
 
 # Run PCA
-pca_result <- prcomp(pca_data, scale. = TRUE)
+pca_result = prcomp(pca_data, scale. = TRUE)
 
 # Calculate variance explained by each PC
-pca_var <- summary(pca_result)$importance
-percent_var <- pca_var[2, ] * 100  # Proportion of variance explained
+pca_var = summary(pca_result)$importance
+percent_var = pca_var[2, ] * 100  # Proportion of variance explained
 
 # Create a data frame for plotting
-pca_df <- data.frame(PC1 = pca_result$x[, 1], 
+pca_df = data.frame(PC1 = pca_result$x[, 1], 
                      PC2 = pca_result$x[, 2], 
                      Study = combined_metadata$Study, 
                      Tissue_Type = combined_metadata$`Tissue Type`)
