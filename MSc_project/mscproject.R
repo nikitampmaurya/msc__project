@@ -1,3 +1,5 @@
+# Please visit README.md for objectives, methodology and future work
+
 ############################# Step 1: Loading the libraries ###############################
 
 library(tidyverse) # to modify and visualize dataset
