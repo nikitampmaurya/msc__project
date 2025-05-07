@@ -15,7 +15,7 @@ Investigating biomarkers associated with fibroids and their subtypes in women’
 3. Identify potential drug candidates for fibroids treatment
 
 ## Methods: 
-1. Data Preprocessing:  
+### 1. Data Preprocessing:  
 
 a. Download and curate data:
 
@@ -38,7 +38,7 @@ c. Integrate data from different sources
 
 i. Correct technical variance and apply batch correction to integrate data across studies. 
 
-2. Analyses:  
+### 2. Analyses:  
 
 a. Differential gene expression analysis and functional enrichment  
 
