@@ -17,19 +17,42 @@ Investigating biomarkers associated with fibroids and their subtypes in women’
 ## Methods: 
 1. Data Preprocessing:  
 
-Download and curate data  
+a. Download and curate data:
 
-Perform normalization and quality control (QC)  
+i. Downloaded datasets (GSE224991, GSE207350, GSE192354, GSE169255) from the Gene Expression Omnibus (GEO) database.
 
-Integrate data from different sources  
+ii. Selection criteria: Bulk RNA-seq, Illumina 6000 platform, Human.GRCh38.p13 genome.
+
+iii. Searched keywords: ((("uterine fibroid" OR "leiomyoma" OR "fibromyoma") AND ("myometrium" OR "healthy myometrium" OR "normal myometrium") AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression") AND ("uterus" OR "uterine tissue"))) AND "Homo sapiens"[porgn:__txid9606] AND "Illumina" AND "6000".
+
+
+b. Perform normalisation and quality control (QC)  
+
+i. Applied TMM normalization in R. 
+
+ii. Why TMM? TMM addresses biases from sequencing depth and gene expression level differences between samples. It also ensures that variations reflect biology rather than library size disparities and maintains low false-positive rates, especially with high-count genes (Marie-Agnès Dillies et.al).
+
+[completed until here]
+
+c. Integrate data from different sources
+
+i. Correct technical variance and apply batch correction to integrate data across studies. 
 
 2. Analyses:  
 
 a. Differential gene expression analysis and functional enrichment  
 
+i. Conduct DGE analysis using Limma or edgeR  to compare the gene expression profiles of fibroid tissue versus healthy myometrium to identify genes that are upregulated or downregulated in fibroids. Once we have our list of differentially expressed genes, we'll perform functional enrichment analysis to understand the biological functions and pathways in which these genes are involved.
+
+ii. Perform pathway analysis using Gene Set Enrichment Analysis (GSEA) to uncover key pathways 
+
 b. Clustering of fibroids and functional enrichment  
 
+i. Explore fibroid endotypes using clustering methods like k-means to identify subtypes to investigate whether there are distinct subtypes of fibroids. We’ll again perform functional enrichment for each fibroid subtype to determine whether different subtypes are associated with different pathways or molecular processes. 
+
 c. In-silico drug repurposing  
+
+i. Utilize LINCS1000 for drug repurposing, targeting potential candidates (e.g., EZH2, CCND1 inhibitors) for non-invasive treatments.
 
 ## Expected Results 
 Identified genes associated with fibroids and their pathways and processes they are involved with. 
