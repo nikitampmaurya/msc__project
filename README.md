@@ -60,3 +60,16 @@ Identified genes associated with fibroids and their pathways and processes they 
 Identify fibroid sub-types based on molecular signatures 
 
 Compile a list of promising drug candidates for fibroid treatment.  
+
+## Future Plan: 
+
+i.   Correct technical variance using batch correction (e.g., ComBat) for improved data integration across studies.
+
+ii.  Perform differential gene expression (DGE) analysis with Limma or edgeR to identify key genes.
+
+iii. Conduct pathway analysis using Gene Set Enrichment Analysis (GSEA) to uncover fibroid-related pathways (e.g., WNT, ECM).
+
+iv.  Explore fibroid endotypes via k-means clustering to classify subtypes based on gene expression profiles.
+
+v.   Apply in-silico drug repurposing with LINCS1000 to identify potential non-invasive treatments targeting dysregulated pathways.
+
