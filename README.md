@@ -52,7 +52,7 @@ i. Explore fibroid endotypes using clustering methods like k-means to identify s
 
 c. In-silico drug repurposing  
 
-i. Utilize LINCS1000 for drug repurposing, targeting potential candidates (e.g., EZH2, CCND1 inhibitors) for non-invasive treatments.
+i. Utilize LINCS1000 for drug repurposing, targeting potential candidates for non-invasive treatments.
 
 ## Expected Results 
 Identified genes associated with fibroids and their pathways and processes they are involved with. 
