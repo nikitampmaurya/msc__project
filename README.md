@@ -5,7 +5,7 @@
 
 ## Description: 
 
-Investigating biomarkers associated with fibroids and their subtypes in women’s myometrium tissues using bulk RNA-sequencing and identifying potential drug candidates through drug repurposing.
+Investigating biomarkers associated with uterine fibroids and their subtypes using bulk RNA-sequencing and identifying potential drug candidates through drug repurposing.
 
 ## Objectives: 
 1. Characterise differences between myometrium vs fibroids  
