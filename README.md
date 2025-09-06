@@ -1,30 +1,27 @@
 # 🚧 Project in Progress
 
-## Project Title: Understanding Uterine Fibroids from mechanisms to potential treatments.
+## Project Title: Meta-Analysis of bulk RNA-seq datasets to characterise molecular differences and investigate putative subtypes of uterine fibroids
 ## Duration: Sep 2024 – Sep 2025
 
 ## Description: 
 
-Investigating biomarkers associated with uterine fibroids and their subtypes using bulk RNA-seq data and identifying potential drug candidates through drug repurposing.
+Investigating biomarkers associated with uterine fibroids and their subtypes using bulk RNA-seq data
 
 ## Objectives: 
 1. Characterise differences between myometrium vs fibroids  
 
 2. Identifying different types of fibroids  
 
-3. Identify potential drug candidates for fibroids treatment
-
 ## Methods: 
 ### 1. Data Preprocessing:  
 
 a. Download and curate data:
 
-i. Downloaded datasets (GSE224991, GSE207350, GSE192354, GSE169255) from the Gene Expression Omnibus (GEO) database.
+i. Downloaded datasets (GSE207350, GSE192354, GSE169255, GSE268710) from the Gene Expression Omnibus (GEO) database.
 
 ii. Selection criteria: Bulk RNA-seq, Illumina 6000 platform, Human.GRCh38.p13 genome.
 
 iii. Searched keywords: ((("uterine fibroid" OR "leiomyoma" OR "fibromyoma") AND ("myometrium" OR "healthy myometrium" OR "normal myometrium") AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression") AND ("uterus" OR "uterine tissue"))) AND "Homo sapiens"[porgn:__txid9606] AND "Illumina" AND "6000".
-
 
 b. Perform normalisation and quality control (QC)  
 
