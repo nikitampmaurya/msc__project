@@ -2,8 +2,12 @@
 
 ## Project Title: Meta-Analysis of bulk RNA-seq datasets to characterise molecular differences and investigate putative subtypes of uterine fibroids
 
+## Introduction: 
+
+Uterine fibroids are the most common benign tumours of the female reproductive tract. They develop within the muscular layer of the uterus, known as the myometrium, which plays a crucial role in childbirth and the menstrual cycle by producing contractions. When fibroids cause symptoms, they can lead to heavy bleeding, severe pain, and sometimes infertility. Did you know that over 70% women have fibroids? Unfortunately, there are currently no long-term, non-invasive treatments available. Why? Because we simply do not understand what and how genes and pathways come together to cause fibroids and their subtypes. To address this knowledge gap, our project analysed and integrated multiple bulk RNA-Seq datasets, as this approach provides a comprehensive transcriptomic profile of all cells in the tissue, allowing for a direct comparison between fibroids and normal myometrium.    
+
 ## Objectives: 
-1. Characterise differences between myometrium vs fibroid tissue
+1. Characterise differences between myometrium and fibroid tissue
 
 2. Identifying different types of fibroids  
 
