@@ -9,11 +9,9 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 ## Objectives: 
 1. Characterise differences between myometrium and fibroid tissue
 
-2. Identifying different types of fibroids  
-
+2. Identifying different types of fibroids
 
 ## Method:
-
 1. Dataset Curation
 2. Data Pre-Processing
 3. Differential Expression Analysis
@@ -21,7 +19,9 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 5. Unsupervised Clustering
 6. Over-Representation Analysis
 
-
+## Results:
+1. Curated datasets based on pre-defined criteria, such as Bulk RNA Seq, Illumina NovaSeq 6000, human genome assembly hg38, unmodified samples, and raw gene expression data. 
+2.
 ### Datasets: 
 
 i. Raw dataset are available inside the folder MSc_project as Sample_1_(GSE207350), Sample_2_(GSE192354), Sample_3_(GSE169255) and GSE268710_RAW. These datasets underwent data preprocessing. Script is available in the folder MSc_project as Code_part1_preprocessing.R 
