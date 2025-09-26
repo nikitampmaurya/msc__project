@@ -11,6 +11,17 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 2. Identifying different types of fibroids  
 
+
+## Method:
+
+1. Dataset Curation
+2. Data Pre-Processing
+3. Differential Expression Analysis
+4. Gene Set Pathway Enrichment
+5. Unsupervised Clustering
+6. Over-Representation Analysis
+
+
 ### Datasets: 
 
 i. Raw dataset are available inside the folder MSc_project as Sample_1_(GSE207350), Sample_2_(GSE192354), Sample_3_(GSE169255) and GSE268710_RAW. These datasets underwent data preprocessing. Script is available in the folder MSc_project as Code_part1_preprocessing.R 
