@@ -79,7 +79,7 @@ ii. Selection criteria: Bulk RNA-seq, Illumina 6000 platform, human genome assem
 
 ### Script:
 
-The project is divided into two R scripts. The first script has only data preprocessing steps. The second script has all the analysis steps, such as differential gene expression analysis, batch correction, pathway enrichment (GSEA), unsupervised clustering, and  pathway enrichment (ORA).  
+The project is divided into two R scripts. The first script has only data preprocessing steps, including how to download metadata. The second script has all the analysis steps, such as differential gene expression analysis, batch correction, pathway enrichment (GSEA), unsupervised clustering, and  pathway enrichment (ORA).  
 
 
 
