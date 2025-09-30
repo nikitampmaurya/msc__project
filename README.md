@@ -82,5 +82,22 @@ ii. Selection criteria: Bulk RNA-seq, Illumina 6000 platform, human genome assem
 The project is divided into two R scripts. The first script has only data preprocessing steps, including how to download metadata. The second script has all the analysis steps, such as differential gene expression analysis, batch correction, pathway enrichment (GSEA), unsupervised clustering, and  pathway enrichment (ORA).  
 
 
+## Tools & Libraries Used
+
+Data retrieval & annotation: GEOquery, biomaRt, org.Hs.eg.db, AnnotationDbi, GO.db
+
+Data handling & wrangling: tidyverse (dplyr, purrr, reshape2, readxl)
+
+Differential expression analysis: edgeR
+
+Batch correction: sva (ComBat)
+
+Pathway enrichment: fgsea (GSEA), over-representation analysis (ORA)
+
+Visualisation: ggplot2, VennDiagram, factoextra, cowplot, RColorBrewer
+
+Clustering & heatmaps: ComplexHeatmap, circlize, pheatmap
+
+
 
 
