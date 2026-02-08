@@ -101,7 +101,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 ## Dependencies
 
 The analysis was conducted in R. The full software environment and package versions
-used in this study are provided below via `sessionInfo()` for reproducibility.
+used in this project are provided below via `sessionInfo()` for reproducibility.
 
 ```text
 R version 4.3.2 (2023-10-31 ucrt)
