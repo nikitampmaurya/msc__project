@@ -10,21 +10,21 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 2. Identifying potential types of fibroids
 
-## Dataset Selection Criteria: 
+## Dataset
 
-All datasets used in this study were publicly available datasets retrieved from the Gene Expression Omnibus Database (GEO).
+* Selection Criteria: All datasets used in this study were publicly available datasets retrieved from the Gene Expression Omnibus Database (GEO).
 
-* Data type: Bulk RNA-seq
+** Data type: Bulk RNA-seq
 
-* Sequencing platform: Illumina NovaSeq 6000
+** Sequencing platform: Illumina NovaSeq 6000
 
-* Genome assembly: GRCh38 (hg38)
+** Genome assembly: GRCh38 (hg38)
 
-* Genetically and pharmacologically unmodified
+** Genetically and pharmacologically unmodified
 
-* Raw gene expression count data
+** Raw gene expression count data
 
-* Search Keywords (GEO):
+** Search Keywords (GEO):
 
 ((("uterine fibroid" OR "leiomyoma" OR "fibromyoma") AND ("myometrium" OR "healthy myometrium" OR "normal myometrium") AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression") AND ("uterus" OR "uterine tissue"))) AND "Homo sapiens"[porgn:__txid9606] AND "Illumina" AND "6000".
 
