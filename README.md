@@ -1,10 +1,8 @@
-# 🚧 Project in Progress
-
 ## Project Title: Meta-Analysis of bulk RNA-seq datasets to characterise molecular differences and investigate putative subtypes of uterine fibroids
 
-## Introduction: 
+## Overview: 
 
-Uterine fibroids are the most common benign tumours of the female reproductive tract — affecting over 70% of women. They develop in the myometrium, the muscular layer of the uterus that drives childbirth and the menstrual cycle. Fibroids can be subserosal (outer layer), intramural (middle layer), or submucosal (inner layer). When symptomatic, they cause heavy bleeding, severe pain, and sometimes infertility. Despite their prevalence, there are currently no long-term, non-invasive treatments — largely because we still don’t understand how genes and pathways contribute to their formation and subtypes. To address this knowledge gap, our project analysed and integrated multiple bulk RNA-Seq datasets, as this approach provides a comprehensive transcriptomic profile of all cells in the tissue, allowing for a direct comparison between fibroids and normal myometrium tissue samples. 
+Uterine fibroids are the most common benign tumours of the female reproductive tract, affecting over 70% of women. They develop in the myometrium, the muscular layer of the uterus that drives childbirth and the menstrual cycle. Fibroids can be subserosal (outer layer), intramural (middle layer), or submucosal (inner layer). When symptomatic, they cause heavy bleeding, severe pain, and sometimes infertility. Despite their prevalence, there are currently no long-term, non-invasive treatments — largely because we still don’t understand how genes and pathways contribute to their formation and subtypes. To address this knowledge gap, our project analysed and integrated multiple bulk RNA-Seq datasets, as this approach provides a comprehensive transcriptomic profile of all cells in the tissue, allowing for a direct comparison between fibroids and normal myometrium tissue samples. 
 
 ## Objectives: 
 
@@ -12,10 +10,31 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 2. Identifying different types of fibroids
 
+## Dataset Selection Criteria:
+
+'- Data type: Bulk RNA-seq
+
+Sequencing platform: Illumina NovaSeq 6000
+
+Genome assembly: GRCh38 (hg38)
+
+Sample characteristics:
+
+Human samples (Homo sapiens)
+
+Genetically and pharmacologically unmodified
+
+Raw count data
+
+Search Keywords (GEO):
+
+((("uterine fibroid" OR "leiomyoma" OR "fibromyoma") AND ("myometrium" OR "healthy myometrium" OR "normal myometrium") AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression") AND ("uterus" OR "uterine tissue"))) AND "Homo sapiens"[porgn:__txid9606] AND "Illumina" AND "6000".
+
+
 ## Method:
 
 1. Dataset Curation (GEO database)
-2. Data Pre-Processing (filter low-expressed genes, outlier samples and batch effects)
+2. Data Pre-Processing (filter low-expressed genes & outlier samples and perform normalisation & batch effects methods)
 3. Differential Expression Analysis (on individual and combined datasets)
 4. Gene Set Enrichment Analysis (GSEA)
 5. Unsupervised Clustering (K-means clustering and hierarchical clustering)
@@ -27,7 +46,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 - Selected 4 bulk RNA-seq datasets based on predefined criteria (Illumina NovaSeq 6000, GRCh38, raw counts, unmodified samples).
 
-- Final dataset: 160 samples (77 fibroids, 83 myometrium).
+- Final dataset: 159 samples (77 fibroids,  82 myometrium).
 
 2. Global Transcriptomic Differences
 
@@ -35,9 +54,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 3. Differential Expression Analysis
 
-- Identified 1170 shared DEGs across all datasets, distinguishing fibroid from myometrium.
-
-- 71% of unique DEGs showed the same change of direction in their gene expression.
+- Identified a 1170 common set of DEGs across all datasets, distinguishing fibroid from myometrium.
 
 4. Pathway Enrichment (GSEA)
 
@@ -67,19 +84,12 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 - Subtype 2: elevated cell division activity.
 
-### Datasets: 
+### Repository Contents: 
 
-i. Raw dataset are available inside the folder MSc_project as Sample_1_(GSE207350), Sample_2_(GSE192354), Sample_3_(GSE169255) and GSE268710_RAW. These datasets underwent data preprocessing. Script is available in the folder MSc_project as Code_part1_preprocessing.R 
+i. Data Curation and Preprocessing steps in DataCurationAndPreprocessing.R
 
-ii. Preprocessed datasets are available in the folder MSc_project > Processed_datasets as A_filtered_annotated_counts.csv, B_filtered_annotated_counts.csv, C_filtered_annotated_counts.csv, D_filtered_annotated_counts.csv and master_metadata.csv. Script is available in the folder part2.R 
+ii. Bioinformatics Analyses steps in BioinformaticsAnalysis.R
 
-ii. Selection criteria: Bulk RNA-seq, Illumina 6000 platform, human genome assembly version hg38. Using the following keywords: 
-
-((("uterine fibroid" OR "leiomyoma" OR "fibromyoma") AND ("myometrium" OR "healthy myometrium" OR "normal myometrium") AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression") AND ("uterus" OR "uterine tissue"))) AND "Homo sapiens"[porgn:__txid9606] AND "Illumina" AND "6000".
-
-### Script:
-
-The project is divided into two R scripts. The first script has only data preprocessing steps, including how to download metadata. The second script has all the analysis steps, such as differential gene expression analysis, batch correction, pathway enrichment (GSEA), unsupervised clustering, and  pathway enrichment (ORA).  
 
 
 ## Tools & Libraries Used
