@@ -12,22 +12,42 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 ## Dataset
 
+- **Selection criteria:** All datasets used in this study were publicly available datasets retrieved from the NCBI Gene Expression Omnibus (GEO).
+  - **Data type:** Bulk RNA-seq
+  - **Sequencing platform:** Illumina NovaSeq 6000
+  - **Genome assembly:** GRCh38 (hg38)
+  - **Sample characteristics:**
+    - Genetically and pharmacologically unmodified
+    - Raw gene expression count data
+  - **Search strategy (GEO):**
+  
+    ```text
+    (("uterine fibroid" OR "leiomyoma" OR "fibromyoma")
+     AND ("myometrium" OR "healthy myometrium" OR "normal myometrium")
+     AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression")
+     AND ("uterus" OR "uterine tissue"))
+     AND "Homo sapiens"[porgn:__txid9606]
+     AND "Illumina"
+     AND "6000"
+    ```
+
+- **Selected datasets (31 May 2025):**
+  - GSE207350
+  - GSE192354
+  - GSE169255
+  - GSE268710
+
 - Selection Criteria: All datasets used in this study were publicly available datasets retrieved from the Gene Expression Omnibus Database (GEO).
   * Data type: Bulk RNA-seq
-
- * Sequencing platform: Illumina NovaSeq 6000
-
- * Genome assembly: GRCh38 (hg38)
-
-** Genetically and pharmacologically unmodified
-
-** Raw gene expression count data
-
-** Search Keywords (GEO):
+  * Sequencing platform: Illumina NovaSeq 6000
+  * Genome assembly: GRCh38 (hg38)
+  * Genetically and pharmacologically unmodified
+  * Raw gene expression count data
+  * Search Keywords (GEO):
 
 ((("uterine fibroid" OR "leiomyoma" OR "fibromyoma") AND ("myometrium" OR "healthy myometrium" OR "normal myometrium") AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression") AND ("uterus" OR "uterine tissue"))) AND "Homo sapiens"[porgn:__txid9606] AND "Illumina" AND "6000".
 
-* Dataset Selected (31st May 2025): GSE207350, GSE192354, GSE169255, GSE268710 
+- Dataset Selected (31st May 2025): GSE207350, GSE192354, GSE169255, GSE268710 
 
 ## Method:
 
