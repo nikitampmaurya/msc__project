@@ -91,15 +91,9 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 ## File Structure
 
-- **DataCurationAndPreprocessing.R**
-  - Dataset selection and curation
-  - Quality control and filtering
-  - Normalisation
-
-- **BioinformaticsAnalysis.R**
-  - Differential expression analysis
-  - Pathway enrichment analyses (GSEA and ORA)
-  - Unsupervised clustering and visualisation
+├── DataCurationAndPreprocessing.R     #  Dataset curation, QC
+├── BioinformaticsAnalysis.R           #  Differential expression, Pathway enrichment, Unsupervised clustering
+├── README.md 
 
 ## Tools & Libraries Used
 
