@@ -49,7 +49,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 ## Results:
 
 - **Dataset curation**
-  - Selected four bulk RNA-seq datasets based on predefined inclusion criteria
+  - Selected four publicly available bulk RNA-seq datasets based on predefined inclusion criteria
   - Final integrated dataset comprised 159 samples:
     - 77 fibroid samples
     - 82 myometrium samples
@@ -58,7 +58,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
   - Principal component analysis (PCA) showed clear separation between fibroid and myometrium samples
 
 - **Differential expression analysis**
-  - Identified a consensus set of 1,170 differentially expressed genes (DEGs) across all datasets, distinguishing fibroid from myometrium
+  - Identified a common set of 1,170 differentially expressed genes (DEGs) across all datasets, distinguishing fibroid from myometrium
 
 - **Pathway enrichment analysis (GSEA)**
   - Identified 105 significantly enriched pathways
@@ -70,7 +70,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
   - Pathways downregulated in fibroids:
     - Coagulation
     - Platelet activation
-  - Mixed or contradictory trends observed in:
+  - Contradictory trends observed in:
     - Immune response
     - Inflammation
     - Metabolism
@@ -89,54 +89,17 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
     - Subtype 1: enhanced immune and inflammatory signatures
     - Subtype 2: elevated cell division and proliferation activity
 
+## File Structure
 
-* Dataset Curation: 
-  ** Selected four bulk RNA-seq datasets based on predefined criteria.
-  ** Final dataset: 159 samples (77 fibroids,  82 myometrium).
+- **DataCurationAndPreprocessing.R**
+  - Dataset selection and curation
+  - Quality control and filtering
+  - Normalisation
 
-2. Global Transcriptomic Differences
-
-- Principal Component Analysis (PCA) showed clear separation between fibroid and myometrium samples.
-
-3. Differential Expression Analysis
-
-- Identified a 1170 common set of DEGs across all datasets, distinguishing fibroid from myometrium.
-
-4. Pathway Enrichment (GSEA)
-
-- 105 significant pathways identified.
-
-- Upregulated in fibroids: cell cycle, DNA repair & replication, ECM, post-translational modification.
-
-- Downregulated in fibroids: coagulation, platelet activation.
-
-- Contradictory trends: immune response, inflammation, metabolism.
-
-5. Subtypes of fibroid 
-
-- K-means clustering revealed two fibroid subtypes.
-
-- Hierarchical clustering of 1170 DEGs yielded two distinct gene clusters.
-
-- Heatmap showed that subtypes exhibit distinct gene expression patterns within each gene cluster.
-
-6. Pathway Enrichment by Subtype (ORA)
-
-- Gene cluster 1: 137 enriched pathways.
-
-- Gene cluster 2: 40 enriched pathways.
-
-- Subtype 1: more immunogenic.
-
-- Subtype 2: elevated cell division activity.
-
-### Repository Contents: 
-
-i. Data Curation and Preprocessing steps in DataCurationAndPreprocessing.R
-
-ii. Bioinformatics Analyses steps in BioinformaticsAnalysis.R
-
-
+- **BioinformaticsAnalysis.R**
+  - Differential expression analysis
+  - Pathway enrichment analyses (GSEA and ORA)
+  - Unsupervised clustering and visualisation
 
 ## Tools & Libraries Used
 
@@ -153,7 +116,5 @@ Pathway enrichment: fgsea (GSEA), over-representation analysis (ORA)
 Visualisation: ggplot2, VennDiagram, factoextra, cowplot, RColorBrewer
 
 Clustering & heatmaps: ComplexHeatmap, circlize, pheatmap
-
-
 
 
