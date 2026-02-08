@@ -48,7 +48,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 ## Results:
 
-* Dataset Curation
+* Dataset Curation: 
   ** Selected four bulk RNA-seq datasets based on predefined criteria.
   ** Final dataset: 159 samples (77 fibroids,  82 myometrium).
 
