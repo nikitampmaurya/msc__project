@@ -13,8 +13,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 ## Dataset
 
 * Selection Criteria: All datasets used in this study were publicly available datasets retrieved from the Gene Expression Omnibus Database (GEO).
-
-  ** Data type: Bulk RNA-seq
+ * Data type: Bulk RNA-seq
 
  * Sequencing platform: Illumina NovaSeq 6000
 
