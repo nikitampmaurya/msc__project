@@ -39,20 +39,18 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 ## Method:
 
-1. Dataset Curation (GEO database)
-2. Data Pre-Processing (filter low-expressed genes & outlier samples and perform normalisation & batch effects methods)
-3. Differential Expression Analysis (on individual and combined datasets)
-4. Gene Set Enrichment Analysis (GSEA)
-5. Unsupervised Clustering (K-means clustering and hierarchical clustering)
-6. Over-Representation Analysis (ORA)
+* Dataset Curation (GEO database)
+* Data Pre-Processing (filter low-expressed genes & outlier samples and perform normalisation & batch effects methods)
+* Differential Expression Analysis (on individual and combined datasets)
+* Gene Set Enrichment Analysis (GSEA)
+* Unsupervised Clustering (K-means clustering and hierarchical clustering)
+* Over-Representation Analysis (ORA)
 
 ## Results:
 
-1. Dataset Curation
-
-- Selected 4 bulk RNA-seq datasets based on predefined criteria (Illumina NovaSeq 6000, GRCh38, raw counts, unmodified samples).
-
-- Final dataset: 159 samples (77 fibroids,  82 myometrium).
+* Dataset Curation
+  ** Selected four bulk RNA-seq datasets based on predefined criteria.
+  ** Final dataset: 159 samples (77 fibroids,  82 myometrium).
 
 2. Global Transcriptomic Differences
 
