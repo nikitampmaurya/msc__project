@@ -133,6 +133,54 @@ BiocManager::install(c(
   "circlize"         # Circos plots & heatmap utilities
 ))
 ```
+
+The analysis was conducted in R. The full software environment and package versions
+used in this study are provided below via `sessionInfo()` for reproducibility.
+
+```text
+R version 4.3.2 (2023-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 26200)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_India.utf8  LC_CTYPE=English_India.utf8   
+[3] LC_MONETARY=English_India.utf8 LC_NUMERIC=C                 
+[5] LC_TIME=English_India.utf8    
+
+time zone: Europe/London
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] edgeR_4.0.16
+[2] limma_3.58.1
+
+loaded via a namespace (and not attached):
+ [1] fgsea_1.28.0
+ [2] sva_3.50.0
+ [3] biomaRt_2.58.0
+ [4] AnnotationDbi_1.64.1
+ [5] org.Hs.eg.db_3.18.0
+ [6] GO.db_3.18.0
+ [7] tidyverse_2.0.0
+ [8] dplyr_1.1.4
+ [9] purrr_1.0.4
+[10] ggplot2_3.5.2
+[11] reshape2_1.4.4
+[12] readxl_1.4.3
+[13] VennDiagram_1.7.3
+[14] factoextra_1.0.7
+[15] cowplot_1.1.3
+[16] RColorBrewer_1.1-3
+[17] pheatmap_1.0.13
+[18] ComplexHeatmap_2.18.0
+[19] circlize_0.4.16
+
+
 ## Acknowledgements
 
 I am sincerely grateful to my project supervisor, Dr Eva Caamaño Gutiérrez, for her guidance, support, and valuable feedback throughout this project. A special thank you to Ms Lorna Salvini for the preliminary search set and Professor Dharani Hapangama at the Liverpool Women’s Hospital for the origination of the project
