@@ -48,6 +48,48 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 ## Results:
 
+- **Dataset curation**
+  - Selected four bulk RNA-seq datasets based on predefined inclusion criteria
+  - Final integrated dataset comprised 159 samples:
+    - 77 fibroid samples
+    - 82 myometrium samples
+
+- **Global transcriptomic differences**
+  - Principal component analysis (PCA) showed clear separation between fibroid and myometrium samples
+
+- **Differential expression analysis**
+  - Identified a consensus set of 1,170 differentially expressed genes (DEGs) across all datasets, distinguishing fibroid from myometrium
+
+- **Pathway enrichment analysis (GSEA)**
+  - Identified 105 significantly enriched pathways
+  - Pathways upregulated in fibroids:
+    - Cell cycle
+    - DNA repair and replication
+    - Extracellular matrix (ECM) organisation
+    - Post-translational modification
+  - Pathways downregulated in fibroids:
+    - Coagulation
+    - Platelet activation
+  - Mixed or contradictory trends observed in:
+    - Immune response
+    - Inflammation
+    - Metabolism
+
+- **Identification of fibroid subtypes**
+  - K-means clustering revealed two molecular fibroid subtypes
+  - Hierarchical clustering of the 1,170 DEGs identified two distinct gene clusters
+  - Heatmap visualisation showed subtype-specific gene expression patterns within each gene cluster
+
+- **Pathway enrichment by subtype (ORA)**
+  - Gene cluster 1:
+    - 137 enriched pathways
+  - Gene cluster 2:
+    - 40 enriched pathways
+  - Subtype-specific characteristics:
+    - Subtype 1: enhanced immune and inflammatory signatures
+    - Subtype 2: elevated cell division and proliferation activity
+
+
 * Dataset Curation: 
   ** Selected four bulk RNA-seq datasets based on predefined criteria.
   ** Final dataset: 159 samples (77 fibroids,  82 myometrium).
