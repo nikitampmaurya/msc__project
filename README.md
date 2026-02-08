@@ -101,6 +101,9 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 ## Dependencies
 
 ```text
+
+# R version: R (R Core Team, version 4.3.2, 2023)
+
 # CRAN packages
 install.packages(c(
   "tidyverse",       # Data wrangling and manipulation (dplyr, purrr, reshape2, readxl)
