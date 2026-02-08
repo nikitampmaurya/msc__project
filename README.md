@@ -114,7 +114,7 @@ Visualisation: ggplot2, VennDiagram, factoextra, cowplot, RColorBrewer
 
 Clustering & heatmaps: ComplexHeatmap, circlize, pheatmap
 
-
+```text
 # -------------------------------
 # CRAN packages
 # -------------------------------
@@ -146,3 +146,4 @@ BiocManager::install(c(
   "ComplexHeatmap",  # Advanced heatmaps
   "circlize"         # Circos plots & heatmap utilities
 ))
+```
