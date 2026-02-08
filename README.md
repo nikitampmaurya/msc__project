@@ -8,28 +8,27 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 1. Characterise differences between myometrium and fibroid tissue
 
-2. Identifying different types of fibroids
+2. Identifying potential types of fibroids
 
-## Dataset Selection Criteria:
+## Dataset Selection Criteria: 
+
+All datasets used in this study were publicly available datasets retrieved from the Gene Expression Omnibus Database (GEO).
 
 * Data type: Bulk RNA-seq
 
-Sequencing platform: Illumina NovaSeq 6000
+* Sequencing platform: Illumina NovaSeq 6000
 
-Genome assembly: GRCh38 (hg38)
+* Genome assembly: GRCh38 (hg38)
 
-Sample characteristics:
+* Genetically and pharmacologically unmodified
 
-Human samples (Homo sapiens)
+* Raw gene expression count data
 
-Genetically and pharmacologically unmodified
-
-Raw count data
-
-Search Keywords (GEO):
+* Search Keywords (GEO):
 
 ((("uterine fibroid" OR "leiomyoma" OR "fibromyoma") AND ("myometrium" OR "healthy myometrium" OR "normal myometrium") AND ("RNA sequencing" OR "RNA-seq" OR "transcriptome" OR "gene expression") AND ("uterus" OR "uterine tissue"))) AND "Homo sapiens"[porgn:__txid9606] AND "Illumina" AND "6000".
 
+* Dataset Selected (31st May 2025): GSE207350, GSE192354, GSE169255, GSE268710 
 
 ## Method:
 
