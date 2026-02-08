@@ -115,3 +115,34 @@ Visualisation: ggplot2, VennDiagram, factoextra, cowplot, RColorBrewer
 Clustering & heatmaps: ComplexHeatmap, circlize, pheatmap
 
 
+# -------------------------------
+# CRAN packages
+# -------------------------------
+install.packages(c(
+  "tidyverse",       # Data wrangling and manipulation (dplyr, purrr, reshape2, readxl)
+  "ggplot2",         # Plotting
+  "VennDiagram",     # Venn diagrams
+  "factoextra",      # PCA & clustering visualization
+  "cowplot",         # Plot arrangement
+  "RColorBrewer",    # Color palettes
+  "pheatmap"         # Heatmaps
+))
+
+# -------------------------------
+# Bioconductor packages
+# -------------------------------
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install(c(
+  "GEOquery",        # Data retrieval from GEO
+  "biomaRt",         # Annotation mapping
+  "org.Hs.eg.db",    # Human gene annotation
+  "AnnotationDbi",   # Annotation utilities
+  "GO.db",           # Gene Ontology database
+  "edgeR",           # Differential expression analysis
+  "sva",             # Batch effect correction (ComBat)
+  "fgsea",           # Gene set enrichment analysis
+  "ComplexHeatmap",  # Advanced heatmaps
+  "circlize"         # Circos plots & heatmap utilities
+))
