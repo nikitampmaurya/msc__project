@@ -98,21 +98,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 ├── README.md                          # Project overview and instructions
 
 ```
-## Tools & Libraries Used
-
-Data retrieval & annotation: GEOquery, biomaRt, org.Hs.eg.db, AnnotationDbi, GO.db
-
-Data handling & wrangling: tidyverse (dplyr, purrr, reshape2, readxl)
-
-Differential expression analysis: edgeR
-
-Batch correction: sva (ComBat)
-
-Pathway enrichment: fgsea (GSEA), over-representation analysis (ORA)
-
-Visualisation: ggplot2, VennDiagram, factoextra, cowplot, RColorBrewer
-
-Clustering & heatmaps: ComplexHeatmap, circlize, pheatmap
+## Dependencies
 
 ```text
 # -------------------------------
