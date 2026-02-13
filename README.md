@@ -56,6 +56,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 - **Global transcriptomic differences**
   - Principal component analysis (PCA) showed clear separation between fibroid and myometrium samples
+  ![Figure 1: PCA of gene expression data of four datasets (Study A-D)](Figures/PCA_Study(A-D).png)
 
 - **Differential expression analysis**
   - Identified a common set of 1,170 differentially expressed genes (DEGs) across all datasets, distinguishing fibroid from myometrium
