@@ -60,6 +60,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 
 - **Differential expression analysis**
   - Identified a common set of 1,170 differentially expressed genes (DEGs) across all datasets, distinguishing fibroid from myometrium
+  ![Figure 3: Venn diagram showing the significant DEGs per dataset at 5% FDR](Figures/VennDiagram.png)
 
 - **Pathway enrichment analysis (GSEA)**
   - Identified 105 significantly enriched pathways
