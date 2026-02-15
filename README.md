@@ -101,6 +101,7 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
 ├── BioinformaticsAnalysis.R           # Differential expression, enrichment, clustering, plots
 ├── Figures/
 │   ├── PCA_Study(A-D).png # Foure PCA plots (Study A–D) showing difference between myometrium and fibroids samples
+|   ├── VennDiagram.png  # Venn diagram showing the significant 1170 DEGs
 │   └── Heatmap.png # Heatmap showing gene clusters across fibroid subtypes
 ├── README.md # Project overview and instructions
 
