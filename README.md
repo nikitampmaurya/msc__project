@@ -80,6 +80,8 @@ Uterine fibroids are the most common benign tumours of the female reproductive t
   - K-means clustering revealed two molecular fibroid subtypes
   - Hierarchical clustering of the 1,170 DEGs identified two distinct gene clusters
   - Heatmap visualisation showed subtype-specific gene expression patterns within each gene cluster
+  ![Figure 1: Heatmap showing two gene clusters across two subtypes of fibroids](Figures/Heatmap.png)
+
 
 - **Pathway enrichment by subtype (ORA)**
   - Gene cluster 1:
